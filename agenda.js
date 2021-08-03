@@ -1,10 +1,14 @@
+var divNovoEvento = document.getElementById('novoEvento');
+var buttonNovoEvento = document.getElementById('buttonNovoEvento');
+var buttonCancelar = document.getElementById('buttonCancelar');
 
-function novoEvento() {
-    var novoEvento = document.getElementById('novoEvento');
-    novoEvento.classList.remove('d-none');
+function mostrarNovoEvento() {
+    divNovoEvento.classList.remove('d-none');
 }
 
 function fecharNovoEvento() {
-    var novoEvento = document.getElementById('novoEvento');
-    novoEvento.classList.add('d-none');
+    divNovoEvento.classList.add('d-none');
 }
+
+buttonNovoEvento.addEventListener('click', mostrarNovoEvento);
+buttonCancelar.addEventListener('click', fecharNovoEvento);
