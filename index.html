@@ -16,7 +16,7 @@
     </div>
     <div id="novoEvento" class="row my-2 mx-1 py-2 border rounded d-none">
       <div class="col-12">
-        <form action="">
+        <form action="" id="formNovoEvento">
           <div class="row">
             <div class="col-12">
               <h2>Novo Evento</h2>
@@ -31,7 +31,7 @@
               <label for="dataEvento" class="form-label">Data do Evento</label>
               <input type="datetime-local" name="dataEvento" id="dataEvento" class="form-control">
             </div>
-            <div class="col-6"><button type="button" class="btn btn-danger w-100">Cancelar</button></div>
+            <div class="col-6"><button type="button" class="btn btn-danger w-100" id="buttonCancelar">Cancelar</button></div>
             <div class="col-6"><button type="submit" class="btn btn-primary w-100">Salvar</button></div>
           </div>
         </form>
@@ -44,7 +44,7 @@
         </h2>
       </div>
       <div class="col-auto">
-        <button type="button" class="btn btn-success" onclick="novoEvento()">Novo Evento</button>
+        <button type="button" class="btn btn-success" id="buttonNovoEvento">Novo Evento</button>
       </div>
     </div>
     <div class="row">
