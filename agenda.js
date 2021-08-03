@@ -16,7 +16,7 @@ function fecharNovoEvento() {
 function salvarNovoEvento(event) {
     event.preventDefault();
     var nomeEvento = inputNomeEvento.value;
-    var dataEvento = inputDataEvento.value;
+    var dataEvento = new Date(inputDataEvento.value);
     console.log(nomeEvento, dataEvento);
 }
 
