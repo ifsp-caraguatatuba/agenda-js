@@ -14,7 +14,7 @@
         <h1>Minha Agenda</h1>
       </div>
     </div>
-    <div class="row my-2 mx-1 py-2 border rounded">
+    <div id="novoEvento" class="row my-2 mx-1 py-2 border rounded d-none">
       <div class="col-12">
         <form action="">
           <div class="row">
@@ -44,7 +44,7 @@
         </h2>
       </div>
       <div class="col-auto">
-        <button type="button" class="btn btn-success">Novo Evento</button>
+        <button type="button" class="btn btn-success" onclick="novoEvento()">Novo Evento</button>
       </div>
     </div>
     <div class="row">
@@ -62,5 +62,6 @@
       </div>
     </div>
   </div>
+  <script src="agenda.js"></script>
 </body>
 </html>
