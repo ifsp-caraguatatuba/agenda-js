@@ -15,9 +15,10 @@ function ocultarNovoEvento() {
 
 function novoEventoValido(nomeEvento, dataEvento) {
     if (nomeEvento.trim().length === 0) return false;
-    var timestamp = Date.parse(dataEvento);
-    if (isNaN(timestamp)) return false;
-    if (timestamp < (new Date()).getTime()) return false;
+    var timestampEvento = Date.parse(dataEvento);
+    if (isNaN(timestampEvento)) return false;
+    var timestampAtual = (new Date()).getTime();
+    if (timestampEvento < timestampAtual) return false;
     return true;
 }
 
