@@ -14,12 +14,22 @@ function ocultarNovoEvento() {
 }
 
 function novoEventoValido(nomeEvento, dataEvento) {
-    if (nomeEvento.trim().length === 0) return false;
+    var validacaoOk = true;
+    if (nomeEvento.trim().length === 0) {
+        inputNomeEvento.classList.add('is-invalid');
+        validacaoOk = false;
+    } else {
+        inputNomeEvento.classList.remove('is-invalid');
+    }
     var timestampEvento = Date.parse(dataEvento);
-    if (isNaN(timestampEvento)) return false;
     var timestampAtual = (new Date()).getTime();
-    if (timestampEvento < timestampAtual) return false;
-    return true;
+    if (isNaN(timestampEvento) || timestampEvento < timestampAtual) {
+        inputDataEvento.classList.add('is-invalid');
+        validacaoOk = false;
+    } else {
+        inputDataEvento.classList.remove('is-invalid');
+    }
+    return validacaoOk;
 }
 
 function salvarNovoEvento(event) {
