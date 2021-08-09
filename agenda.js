@@ -14,16 +14,17 @@ function ocultarNovoEvento() {
 }
 
 function novoEventoValido(nomeEvento, dataEvento) {
-    // nome evento está vazio?
-    // data evento está vazia?
-    // data evento é no passado?
+    if (nomeEvento.trim().length === 0) return false;
+    var timestamp = Date.parse(dataEvento);
+    if (isNaN(timestamp)) return false;
+    if (timestamp < (new Date()).getTime()) return false;
     return true;
 }
 
 function salvarNovoEvento(event) {
     event.preventDefault();
     var nomeEvento = inputNomeEvento.value;
-    var dataEvento = new Date(inputDataEvento.value);
+    var dataEvento = inputDataEvento.value;
     if (novoEventoValido(nomeEvento, dataEvento)) {
         console.log('Evento é válido!');
     } else {
