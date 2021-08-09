@@ -4,18 +4,22 @@ var novoEvento = document.getElementById('novoEvento');
 var formNovoEvento = document.getElementById('formNovoEvento');
 var inputNomeEvento = document.getElementById('nomeEvento');
 var inputDataEvento = document.getElementById('dataEvento');
+var divMensagemErro = document.getElementById('mensagemErro');
 
 function mostrarNovoEvento() {
     novoEvento.classList.remove('d-none');
 }
 
 function ocultarNovoEvento() {
+    
     novoEvento.classList.add('d-none');
 }
 
 function novoEventoValido(nomeEvento, dataEvento) {
     var validacaoOk = true;
+    var erro = '';
     if (nomeEvento.trim().length === 0) {
+        erro = 'O nome do evento é obrigatório!';
         inputNomeEvento.classList.add('is-invalid');
         validacaoOk = false;
     } else {
@@ -24,11 +28,23 @@ function novoEventoValido(nomeEvento, dataEvento) {
     var timestampEvento = Date.parse(dataEvento);
     var timestampAtual = (new Date()).getTime();
     if (isNaN(timestampEvento) || timestampEvento < timestampAtual) {
+        if (erro.length > 0) {
+            erro += '<br>'
+        }
+        erro += 'A data do evento é obrigatória e deve estar no futuro!';
         inputDataEvento.classList.add('is-invalid');
         validacaoOk = false;
     } else {
         inputDataEvento.classList.remove('is-invalid');
     }
+
+    if (!validacaoOk) {
+        divMensagemErro.innerHTML = erro;
+        divMensagemErro.classList.remove('d-none');
+    } else {
+        divMensagemErro.classList.add('d-none');
+    }
+
     return validacaoOk;
 }
 
